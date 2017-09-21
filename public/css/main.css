@@ -1,0 +1,16 @@
+body {
+  padding-top: 5rem;
+}
+textarea {
+  margin-top: 10px;
+  height: 80px;
+}
+button {
+  margin: 20px;
+}
+.col {
+  margin: 20px;
+}
+#results {
+  margin: 20px;
+}
