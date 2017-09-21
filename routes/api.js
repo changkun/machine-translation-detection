@@ -1,3 +1,4 @@
+'use strict';
 var express = require('express');
 var router = express.Router();
 
@@ -17,12 +18,14 @@ router.post('/translate', function(req, res, next) {
     translate(src_text, {from: src_lang, to: dst_lang}).then(google_res => {
       let google_text = google_res.text;
       let distance = levenshtein.get(dst_text, google_text);
+      console.log(distance, dst_text.length, google_text.length);
       let score = 1.0 - (distance * 1.0) / Math.max(dst_text.length, google_text.length);
-      res.json({
+      let obj = {
           'engine': 'google',
           'machine_text': google_text,
-          'score': score,
-      });
+          'score': score
+      }
+      res.json(obj);
     }).catch(err => {
       res.json({'error': err});
     });

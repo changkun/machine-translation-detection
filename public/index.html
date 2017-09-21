@@ -63,7 +63,7 @@
             var dst_text = $('#dst_text').val();
             var dst_lang = $('#dst_lang').val();
 
-            if (src_text.length > 10 && dst_lang.length > 10) {
+            if (src_text && dst_lang) {
                 $.ajax({
                     type: 'POST',
                     url: '/api/v1/translate',
