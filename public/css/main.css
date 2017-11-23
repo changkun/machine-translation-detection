@@ -14,3 +14,16 @@ button {
 #results {
   margin: 20px;
 }
+#footer {
+  background-color: #1e2318;
+  bottom: 0;
+  padding: 10px 0;
+  border-top: 20px;
+  position: fixed;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+#footer p {
+  margin: 20px;
+}

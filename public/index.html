@@ -9,6 +9,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+    <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
+    
 </head>
 <body>
 
@@ -54,9 +56,18 @@
             <!-- <h4>本段文字是机器翻译的可能性为：</h4>
             <div class="score"></div> -->
         </div>
-
+    </div>
+    <div id="footer">
+        <p>
+            Copyright © 2017
+            <!-- Copyright &copy; 2016-2017 -->
+            Developed by <a href="https://changkun.de">Ou Changkun</a>.<br>
+            Released under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>
+        </p>
     </div>
     <script>
+        autosize(document.getElementById("src_text"));
+        autosize(document.getElementById("dst_text"));
         $('#start').click(function() {
             var src_text = $('#src_text').val();
             var src_lang = $('#src_lang').val();
@@ -78,9 +89,9 @@
                     if (data.error) {
                         $('#results').text('出错啦：' + data.error );
                     } else {
-                        $('#results').text(
-                            '输入文字是机器翻译的可能性为：' + data.score * 100 + '%。\n' + 
-                            '机器翻译的结果为：' + data.machine_text
+                        $('#results').html(
+                            '<p>输入文字是机器翻译的可能性为：' + data.score * 100 + '%。</p>' + 
+                            '<p>机器翻译的结果为：' + data.machine_text + '</p>'
                         );
                     }
                     
